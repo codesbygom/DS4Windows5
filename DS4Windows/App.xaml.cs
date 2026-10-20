@@ -1193,10 +1193,11 @@ namespace DS4WinWPF
                 CultureInfo ci = CultureInfo.GetCultureInfo(culture);
                 LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
                 LocalizeDictionary.Instance.Culture = ci;
+                DS4Forms.RuntimeXamlTranslator.Initialize(ci);
                 // fixes the culture in threads
                 CultureInfo.DefaultThreadCurrentCulture = ci;
                 CultureInfo.DefaultThreadCurrentUICulture = ci;
-                //DS4WinWPF.Properties.Resources.Culture = ci;
+                DS4WinWPF.Properties.Resources.Culture = ci;
                 Thread.CurrentThread.CurrentCulture = ci;
                 Thread.CurrentThread.CurrentUICulture = ci;
             }
